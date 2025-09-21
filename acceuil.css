@@ -22,7 +22,8 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
 }
 
 
@@ -88,6 +89,10 @@ section .fond img{
     height: 520px;
 }
 
+section{
+    padding: 40px 20px;
+}
+
 .text{
     position: absolute;
     bottom: 30px;
@@ -105,11 +110,20 @@ section .fond img{
     height: 350px;
     width: 100%;
     border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.livre:hover img{
+    transform: scale(1.05);
 }
 
 .livres{
-    display: flex;
-    justify-content: space-around;
+    /* display: flex;
+    justify-content: space-around; */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
 }
 
 .hide p{
@@ -139,7 +153,7 @@ section .fond img{
     height: 130px;
     text-align: center;
     border-radius: 10px;
-    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.3);
     background-color: white;
 }
 
@@ -154,9 +168,15 @@ section .fond img{
 }
 
 .citation{
-    margin: 10px;
+    margin: 20px;
     border-radius: 10px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
     background-color: white;
     padding: 1%;
+}
+
+em{
+    padding: 10%;
+    font-size: x-large;
+    font-weight: bold;
 }
