@@ -1,5 +1,10 @@
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* padding: 100px; */
 }
 
 .head{
@@ -11,8 +16,18 @@ body{
     
 }
 
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+}
+
+
 .logo{
-    margin-top: 5px;
+    /* margin-top: 5px; */
     padding-left: 50px;
     width: 20%;
     color: #1b374a;
@@ -49,7 +64,7 @@ a{
 
 .button p{
     border: 1px solid #1b374a;
-    padding: 12px;
+    padding: 10px;
     font-size: 15px;
     border-radius: 5px;
 }
@@ -61,4 +76,87 @@ a{
 .signUp{
     background-color: #1b374a;
     color: white;
+}
+
+#home{
+    padding-top: 120px;
+    box-sizing: border-box;
+}
+
+section .fond img{
+    width: 100%;
+    height: 520px;
+}
+
+.text{
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    color: white;
+}
+
+.livre{
+    position: relative;
+    margin-top: 3%;
+    height: 500px;
+}
+
+.livre img{
+    height: 350px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.livres{
+    display: flex;
+    justify-content: space-around;
+}
+
+.hide p{
+    display: none;
+}
+
+.show p{
+    display: block;
+}
+
+.livre:hover .show p {
+  display: none;    /* cache le texte court */
+}
+
+.livre:hover .hide p {
+  display: block;   /* affiche le texte long */
+}
+
+.statistique{
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+}
+
+.stat{
+    width: 13%;
+    height: 130px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.about{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+
+.image{
+    padding-top: 30px;
+}
+
+.citation{
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    padding: 1%;
 }
