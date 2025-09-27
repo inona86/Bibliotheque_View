@@ -13,6 +13,11 @@
         </div>
         <nav>
             <div class="logo"><H1>INONA-LIB</H1></div>
+            <div class="hambuger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="info">
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -148,4 +153,10 @@
         </div>    
     </section>
 </body>
+<script>
+    function toggleMenu(){
+        const menu = document.querySelector(".info");
+        menu.classList.toggle('show');
+    }
+</script>
 </html>

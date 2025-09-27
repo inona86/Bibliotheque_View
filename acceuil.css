@@ -4,16 +4,14 @@ html{
 
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* padding: 100px; */
 }
 
 .head{
     width: 100%;
     background-color: #1b374a;
     height: 50px;
-    border: solid, black, 2px, 2px;
+    border: 2px solid black;
     border-radius: 5px;
-    
 }
 
 header {
@@ -26,12 +24,25 @@ header {
     backdrop-filter: blur(5px);
 }
 
-
 .logo{
-    /* margin-top: 5px; */
     padding-left: 50px;
     width: 20%;
     color: #1b374a;
+}
+
+.hambuger{
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px;
+}
+
+.hambuger span{
+    height: 3px;
+    width: 25px;
+    background-color: #1b374a;
+    border-radius: 5px;
 }
 
 .info{
@@ -39,7 +50,7 @@ header {
     width: 60%;
 }
 
-ul{
+.info ul{
     display: flex;
     list-style-type: none;
     justify-content: space-around;    
@@ -48,6 +59,8 @@ ul{
 nav{
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     box-shadow: 0px, 4px, 6px rgba(0, 0, 0, 0.9);
 }
 
@@ -70,6 +83,12 @@ a{
     border-radius: 5px;
 }
 
+.button p:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+
 .signIn{
     background-color: white;
 }
@@ -79,6 +98,91 @@ a{
     color: white;
 }
 
+/* === VERSION MOBILE === */
+@media screen and (max-width: 768px) {
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+
+    /* Hamburger en haut à gauche */
+    .hambuger {
+        display: flex;
+        order: 3;
+        position: absolute;
+        justify-content: flex-start;
+        right: 25px;
+        bottom: 30px;
+    }
+
+    /* Boutons en haut à droite */
+    .button {
+        order: 3;
+        width: 100%;
+        justify-content: flex-end;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        gap: 10px;
+    }
+
+    .button p {
+        font-size: clamp(12px, 3vw, 15px);
+        padding: 8px 12px;
+    }
+
+    /* Logo (nom de la bibliothèque) en dessous à gauche */
+    .logo {
+        order: 1;
+        width: 100%;
+        text-align: left;
+        padding-left: 10px;
+        font-size: clamp(18px, 5vw, 28px);
+        margin-top: 10px;
+    }
+
+    /* Menu caché par défaut */
+    .info {
+        order: 2;
+        display: none;
+        flex-direction: column;
+        background-color: white;
+        position: absolute;
+        top: 120px;
+        right: 30px;  /* fixé à gauche */
+        width: 200px; /*largeur raisonnable*/
+        padding: 15px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 2000;
+
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .info.show{
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .info ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .info ul li {
+        margin: 5px 0;
+    }
+}
+
+/* === CONTENU RESTE IDENTIQUE === */
 #home{
     padding-top: 120px;
     box-sizing: border-box;
@@ -118,9 +222,6 @@ section{
 }
 
 .livres{
-    /* display: flex;
-    justify-content: space-around; */
-
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 50px;
@@ -135,11 +236,11 @@ section{
 }
 
 .livre:hover .show p {
-  display: none;    /* cache le texte court */
+  display: none;
 }
 
 .livre:hover .hide p {
-  display: block;   /* affiche le texte long */
+  display: block;
 }
 
 .statistique{
@@ -161,18 +262,51 @@ section{
     display: flex;
     justify-content: space-between;
     padding-top: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-text{
+    flex: 1 1 60%;
+    min-width: 300px;
 }
 
 .image{
-    padding-top: 30px;
+    margin-top: 50px;
+    flex: 1 1 35%;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.image img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .citation{
-    margin: 20px;
+    text-align: center;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
     background-color: white;
-    padding: 1%;
+}
+
+@media screen and (max-width: 768px) {
+    .about{
+        flex-direction: column;
+        padding: 15px;
+    }
+    .about-text{
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+    .image{
+        margin-top: 20px;
+    }
 }
 
 em{
